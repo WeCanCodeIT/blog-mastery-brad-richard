@@ -4,13 +4,19 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+// Blog Database
+const blogDatabase = require('./src/data/db');
+process.env.DB_HOST = process.env.BLOG_DB_HOST || "localhost";
+
+
+// Routers
+var indexRouter = require('./src/routes/index');
+var usersRouter = require('./src/routes/users');
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'src/views'));
 app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
@@ -37,5 +43,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// connect to db
+blogDatabase.sync()
+  .then(() => {console.log("////---___>|| Connected to Database ||<___---\\\\\\\\")})
+  .catch((err) => {console.error})
 
 module.exports = app;
