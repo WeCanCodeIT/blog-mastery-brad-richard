@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const hostName = process.env.DB_HOST;
 
 const Blog = new Sequelize(
-    'sys',
+    'blogsite',
     'root',
     'password',
     {
