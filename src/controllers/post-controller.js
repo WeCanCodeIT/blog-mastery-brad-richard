@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const postService = require('../services/post-service');
+const authorService = require('../services/author-service');
 
 class PostController {
     static async addPost(req, res) {
@@ -7,10 +8,10 @@ class PostController {
         // const authorId = req.body.authorId;
 
         const Post = { title: req.body.title, body: req.body.body }
-        const newPost = await postService.addPost( Post );
+        const newPost = await postService.save(Post);
 
-        // newPost.addAuthor(authorId)
-        res.redirect("/")
+        // Redirect to post route
+        res.redirect("/post")
     }
 
     static async renderAll(req, res) {

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville|Poppins|Lato|Raleway|Modak|Roboto+Condensed|Lora|Noto+Sans+TC|Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Anton|Libre+Baskerville|Poppins|Lato|Raleway|Modak|Roboto+Condensed|Lora|Noto+Sans+TC|Open+Sans&display=swap');
 
 /* Reset Default Styling */
 * {
@@ -15,7 +15,7 @@ font-family: 'Open Sans', sans-serif;
 
 body{
   background-image: linear-gradient(to bottom, rgb(253, 254, 255));
-  background-color: rgba(89, 105, 129, 0.322);
+  background-color: rgba(95, 99, 105, 0.322);
 }
 
 /* Default 1ine-height to 20pixels  */
@@ -26,6 +26,13 @@ html {
   --navbar-text-color: white;
   --form-background-color: rgba(13, 3, 102, 0.75);
   --form-border-color: rgba(3, 60, 87, 0.9);
+
+  --post-bgcolor: rgb(197, 197, 166); 
+  --post-genre-bgcolor: rgb(134, 134, 114);
+  --post-user-since-bgcolor: rgb(134, 134, 114);
+  --user-link-color: rgb(255, 255, 255);
+
+
 }
 
 .main-header{
@@ -90,10 +97,18 @@ h2{
   border: 2px solid black;
 }
 .main__post-category-container{
-  background-color: rgba(179, 156, 107, 0.685);
+  text-align: center;
+  background-color: var(--post-genre-bgcolor);
   border: 3px black;
-  border-style: none solid solid solid;
+  border-style: solid solid none solid;
+  border-radius: 10px 10px 0 0;
+  width: 300px;
 }
+.main__post-category-container:hover{
+  background-color: rgb(252, 252, 252);
+  transition-duration: 1s;
+}
+
 
 .main__post-container{
   display: grid;
@@ -102,27 +117,25 @@ h2{
     'avatar text text text'
     'user text text text'
     'since text text text'
-    'genre tags tags tags';
-  grid-gap: 10px;
-  background-color: rgba(179, 156, 107, 0.685);
+    'tags tags tags tags';
+  
+  background-color: var(--post-bgcolor);
   box-shadow: 10px 10px 10px rgba(41, 41, 44, 0.527);
   border: 3px solid black;
+  border-radius: 0px 10px 10px 10px;
   margin-bottom: 25px;
 }
 
+
 .main__post-date{
   grid-area: date;
-  font-family: 'Lato', sans-serif; 
+  font-family: 'Anton', sans-serif; 
   text-align: center;
-  font-size: 1.5em;
+  font-size: 2rem;
+  margin:auto;
   margin-right: 10px;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding: 5px;
-  padding-bottom: 0;
-  background-color: #8498d4;
-  border: rgba(13, 61, 124, 0.534) ;
-  border-style: none solid solid solid;
+  
+  
 
 }
 .main__post-avatar{
@@ -130,37 +143,55 @@ h2{
   width: auto;
   height: auto;
   margin-left:10px; 
+  background-color: var(--post-user-since-bgcolor);
   
-}
-
-.main__post-genre {
-  grid-area: genre;
-  text-align: left;
 }
 
 .main__post-since{
   grid-area: since;
+  margin-left: 10px;
   text-align: center;
+  background-color: var(--post-user-since-bgcolor);
+}
+.main__post-since > p {
+  color:white;
 }
 
+.main__post-user{
+  grid-area: user;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--user-link-color);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 5px;
+  background-color: var(--post-user-since-bgcolor);
+  margin-left: 10px;
+}
+.main__post-user > a:visited, .main__post-user > a:link{
+  color: var(--user-link-color);
+}
 .main__post-text{
   grid-area: text;
   font-family: 'Lato', sans-serif; 
   background-color: rgb(244, 250, 220);
   padding: 10px;
   margin-right: 10px;
+  margin-left: 10px;
 }
 
 .main__post-tag-container{
   grid-area: tags;
-  margin: auto auto 10px auto;
+  margin: auto;
   list-style-type: none;
   overflow:hidden;
-
+  
 }
 .main__post-tag{
   grid-area: tags;
   float: left;
+  padding: .5rem .5rem;
+  
 }
 
 .main__post-tag:hover{
@@ -171,21 +202,19 @@ h2{
 .main__post-title{
   grid-area: title;
   text-align: center;
-  font-size: 2em;
+  font-size: 2.1em;
+  font-weight: bold;
   padding: 5px;
   padding-left: 40px;
-  margin: 10px 20px 10px 10px;
+  padding-bottom: 0;
+  margin: 10px;
   background-color:  rgb(244, 250, 220);
   border: black solid 3px;
   border-radius: 5px;
-  font-family: 'Libre Baskerville', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   /* color: rgb(243, 189, 89); */
 }
 
-.main__post-user{
-  grid-area: user;
-  text-align: center;
-}
 
 .main__posts-header {
   padding: .5rem 0;

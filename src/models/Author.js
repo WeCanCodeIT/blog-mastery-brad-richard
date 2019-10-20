@@ -20,6 +20,11 @@ const Author = sequelize.define('author', {
         type: Sequelize.STRING,
         allowNull: true
     }
+
+    token: {
+        type: Sequelize.STRING,
+        allowNull: false
+    }
 });
 
 module.exports = Author;
