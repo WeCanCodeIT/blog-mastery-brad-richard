@@ -8,15 +8,16 @@ class PostController {
         // const authorId = req.body.authorId;
 
         const Post = { title: req.body.title, body: req.body.body }
+        const 
         const newPost = await postService.save(Post);
 
         // Redirect to post route
-        res.redirect("/post")
+        res.redirect("/posts")
     }
 
     static async renderAll(req, res) {
         const posts = await postService.findAll();
-        res.render("index", { posts })
+        res.render("/posts", { posts })
     }
 
     static async renderPost(req, res) {
