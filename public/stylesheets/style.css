@@ -242,11 +242,10 @@ h2{
   grid-template-columns: .4fr 1fr .4fr 1fr;
   grid-template-areas:  'header header header header'
                         'user_desc user token_desc token'
-                        
                         'title_desc title category_desc category'
-                        
                         'text_desc text text text'
-                        'tags_desc tags tags tags' ;
+                        'tags_desc tags tags tags' 
+                        'none none none submit';
          
   background-color: rgb(126, 178, 221);
   /* background-image: linear-gradient(to top,rgb(243, 233, 220),rgb(223, 156, 75),rgb(172, 139, 99),rgb(212, 184, 150)); */
@@ -322,6 +321,7 @@ h2{
 .form__post-text_desc{
   grid-area: text_desc;
   text-align: right;
+  margin-left: 10px;
 }
 .form__post-text{
   grid-area: text;
@@ -346,5 +346,51 @@ h2{
   grid-area: tags;
   margin-left: 1rem;
   margin-right: .2rem;
+}
+.form__post-tag:hover{
+ box-shadow: darkslategray 2px 2px 5px;
+}
+.form__post-submit-container{
+  grid-area: submit;
+  margin-bottom: 12px;
+}
+.form__post-submit{
+  grid-area: submit;
+  display: inline-block;
+  background-color: rgb(83, 67, 67);
+  padding: .8rem 1.5rem;
+  border: white 3px solid;
+  border-radius: 12px;
+  color: white;
+  font-family: Quicksand, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  transition: all .05s;
+}
+.form__post-submit-container > button:hover{
+  border: yellow 3px solid;
+  color: yellow;
+  cursor: pointer;
+  background-color: rgb(26, 25, 34);
+  transition: 0.5s;
+}
+.form__post-submit span{
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+} 
+.form__post-submit span:after{
+  content:'\ >>';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.form__post-submit:hover span{
+  padding-right:  25px;
 
+}
+.form__post-submit:hover span:after{
+  opacity: 1;
+  right: 0;
 }
