@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Anton|Libre+Baskerville|Poppins|Lato|Raleway|Modak|Roboto+Condensed|Lora|Noto+Sans+TC|Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand|Bree+Serif|Josefin+Sans|Anton|Libre+Baskerville|Poppins|Lato|Raleway|Modak|Roboto+Condensed|Lora|Noto+Sans+TC|Open+Sans&display=swap');
 
 /* Reset Default Styling */
 * {
@@ -15,7 +15,8 @@ font-family: 'Open Sans', sans-serif;
 
 body{
   background-image: linear-gradient(to bottom, rgb(253, 254, 255));
-  background-color: rgba(95, 99, 105, 0.322);
+  background-color: rgba(70, 75, 99, 0.836);
+  
 }
 
 /* Default 1ine-height to 20pixels  */
@@ -106,7 +107,8 @@ h2{
 }
 .main__post-category-container:hover{
   background-color: rgb(252, 252, 252);
-  transition-duration: 1s;
+  height: 1.8rem;
+  transition-duration: .5s;
 }
 
 
@@ -171,6 +173,10 @@ h2{
 .main__post-user > a:visited, .main__post-user > a:link{
   color: var(--user-link-color);
 }
+.main__post-user > a:hover{
+  color:rgb(210, 233, 10);
+  transition-duration: .25s;
+}
 .main__post-text{
   grid-area: text;
   font-family: 'Lato', sans-serif; 
@@ -226,4 +232,119 @@ h2{
   min-width: 10rem;
   max-width: 55rem;
   min-height: 100vh;
+}
+
+/* ----------------------------*/
+/* --------Post Form --------- */
+
+.form__post-container{
+  display: grid;
+  grid-template-columns: .4fr 1fr .4fr 1fr;
+  grid-template-areas:  'header header header header'
+                        'user_desc user token_desc token'
+                        
+                        'title_desc title category_desc category'
+                        
+                        'text_desc text text text'
+                        'tags_desc tags tags tags' ;
+         
+  background-color: rgb(126, 178, 221);
+  /* background-image: linear-gradient(to top,rgb(243, 233, 220),rgb(223, 156, 75),rgb(172, 139, 99),rgb(212, 184, 150)); */
+  color: black;
+  width: 75%;
+  gap: 12px;
+  border: 3px solid black;
+  border-radius: 15px;
+  box-shadow: 10px 10px 10px rgba(41, 41, 44, 0.527);
+  margin: 20px auto 20px auto;
+  
+  
+  font-family: 'Bree Serif', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.form__post-header{
+  grid-area: header;
+  text-align: center;
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  border-bottom: 4px solid black;
+  border-radius: 10px 10px 0 0 ;
+  font-family: Quicksand, Helvetica, sans-serif;
+  background-color: rgb(38, 58, 124);
+}
+.form__post-user{
+  grid-area: user;
+  padding-right: 1rem;
+  border: 1px solid black;
+
+}
+.form__post-token{
+  grid-area: token;
+  margin-right: 1rem;
+  border: 1px solid black;
+
+
+}
+.form__post-user_desc{
+  grid-area: user_desc;
+  text-align: right;
+
+}
+.form__post-token_desc{
+  grid-area: token_desc;
+  text-align: right;
+
+}
+.form__post-title_desc{
+  grid-area: title_desc;
+  text-align: right;
+
+}
+.form__post-title{
+  grid-area: title;
+  text-align: right;
+  border: 1px solid black;
+}
+.form__post-category_desc{
+  grid-area: category_desc;
+  text-align: right;
+
+}
+.form__post-category{
+  grid-area: category;
+  text-align: right;
+  margin-right: 1rem;
+  border: 1px solid black;
+
+
+}
+.form__post-text_desc{
+  grid-area: text_desc;
+  text-align: right;
+}
+.form__post-text{
+  grid-area: text;
+  padding: 12px 20px;
+  height: 13rem;
+  resize: none;
+  margin-right: 1rem;
+  border: 1px solid black;
+
+}
+.form__post-tags_desc{
+  grid-area: tags_desc;
+  text-align: right;
+}
+.form__post-tags{
+  grid-area: tags;
+  margin-right: .5rem;
+  padding-bottom: 15px;
+  
+}
+.form__post-tag{
+  grid-area: tags;
+  margin-left: 1rem;
+  margin-right: .2rem;
+
 }
