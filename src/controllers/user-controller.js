@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const userService = require('../services/user-service');
 const tokenGen = require('../utils/user-token-gen');
-const imageUrlArray = require('../models/image-url-array');
+const avatarArray = require('../models/image-url-array');
 
 class AuthorController {
     static async addAuthor(req, res) {
@@ -31,7 +31,7 @@ class AuthorController {
     }
 
     static async renderUserForm(req, res) {
-        res.render("users/new-form");
+        res.render("users/new-form", { avatars: avatarArray });
     }
 }
 
