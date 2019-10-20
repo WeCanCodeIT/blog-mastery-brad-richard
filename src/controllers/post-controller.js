@@ -23,3 +23,5 @@ class PostController {
         const post = await postService.findPostById()
     }
 }
+
+module.exports = PostController;
