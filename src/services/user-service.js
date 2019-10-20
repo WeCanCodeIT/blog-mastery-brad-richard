@@ -1,26 +1,26 @@
 const Sequelize = require('sequelize');
-const Post = require('../models/Post');
+const Author = require('../models/Author');
 
 module.exports = {
     async findAll () {
         try {
-            const posts = await Post.findAll();
-            return posts;
+            const authors = await Author.findAll();
+            return authors;
         } catch (err) {
             return err;
         }
     },
     async findAuthorById(userId) {
         try {
-            const posts = await Post.findByPk(userId);
-            return posts;
+            const author = await Author.findByPk(userId);
+            return author;
         } catch (err) {
             return err;
         }
     },
-    async save (newPost) {
+    async save (newAuthor) {
         try {
-            await Post.create(newPost);
+            await Author.create(newAuthor);
         } catch (err) {
             return err;
         }

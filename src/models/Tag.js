@@ -16,7 +16,7 @@ const Tag = sequelize.define('tags', {
     }
 });
 
-Post.hasMany(Tag, {through: 'post_tags'})
-Tag.hasMany(Post, {through: 'post_tags'})
+// Post.hasMany(Tag, {through: 'post_tags'})
+// Tag.hasMany(Post, {through: 'post_tags'})
 
 module.exports = Tag;

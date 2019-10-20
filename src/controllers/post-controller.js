@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const postService = require('../services/post-service');
-const authorService = require('../services/author-service');
+const authorService = require('../services/user-service');
 
 class PostController {
     static async addPost(req, res) {
@@ -8,7 +8,6 @@ class PostController {
         // const authorId = req.body.authorId;
 
         const Post = { title: req.body.title, body: req.body.body }
-        const 
         const newPost = await postService.save(Post);
 
         // Redirect to post route
@@ -22,7 +21,11 @@ class PostController {
 
     static async renderPost(req, res) {
         const postId = req.params.id;
-        const post = await postService.findPostById()
+        const post = await postService.findPostById(postId)
+    }
+
+    static async renderRecent(req, res) {
+        const recentPosts = await postService.findAll();
     }
 }
 
