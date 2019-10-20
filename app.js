@@ -13,7 +13,7 @@ process.env.DB_HOST = process.env.BLOG_DB_HOST || "localhost";
 // Routers
 var indexRouter = require('./src/routes/index');
 var usersRouter = require('./src/routes/users');
-var postsRouter = require('./src/routes/posts')
+var postsRouter = require('./src/routes/posts');
 
 var app = express();
 
