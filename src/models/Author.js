@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../data/db');
+const Post = require('./Post');
 
 const Author = sequelize.define('author', {
     id: {
@@ -9,7 +10,18 @@ const Author = sequelize.define('author', {
         primaryKey: true
     },
 
-    title: {
+    name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
+    },
+
+    avatarUrl: {
+        type: Sequelize.STRING,
+        allowNull: true
+    }
+
+    token: {
         type: Sequelize.STRING,
         allowNull: false
     }

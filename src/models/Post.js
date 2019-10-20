@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../data/db');
+const Author = require('./Author');
 
 const Post = sequelize.define('posts', {
     id: {
@@ -19,5 +20,8 @@ const Post = sequelize.define('posts', {
         allowNull: false
     }
 });
+
+Post.belongsTo(Author, { constraints: true, onDelete: 'CASCADE' });
+Author.hasMany(Post);
 
 module.exports = Post;

@@ -1,17 +1,20 @@
 const Sequelize = require('sequelize');
-const postService = require('../services/post-service');
 const authorService = require('../services/author-service');
+const tokenGen = require('../utils/user-token-gen');
 
-class PostController {
-    static async addPost(req, res) {
+class AuthorController {
+    static async addAuthor(req, res) {
         /* Commented Out Author associations */
         // const authorId = req.body.authorId;
 
-        const Post = { title: req.body.title, body: req.body.body }
-        const newPost = await postService.save(Post);
+        let userToken = tokenGen();
+        const Author = { name: req.body.name, 
+                         body: req.body.body,
+                         token: userToken }
+        const newAuthor = await authorService.save( Author );
+        res.render("/user/new")
 
-        // Redirect to post route
-        res.redirect("/post")
+        // newPost.addAuthor(authorId)
     }
 
     static async renderAll(req, res) {
@@ -25,4 +28,4 @@ class PostController {
     }
 }
 
-module.exports = PostController;
+module.exports = AuthorController;

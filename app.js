@@ -4,10 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+/*            Environmental Variables            */
 // Blog Database
 const blogDatabase = require('./src/data/db');
 process.env.DB_HOST = process.env.BLOG_DB_HOST || "localhost";
-
+// process.env.
 
 // Routers
 var indexRouter = require('./src/routes/index');
