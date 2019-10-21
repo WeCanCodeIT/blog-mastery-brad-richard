@@ -25,5 +25,15 @@ module.exports = {
         } catch (err) {
             return err;
         }
+    },
+    async validateToken(authorId, token) {
+        try {
+            const checkUser = await Author.find({
+                where: {id: authorId, token: token}
+            });
+            return checkUser;
+        } catch (error) {
+            return error
+        }
     }
 }
