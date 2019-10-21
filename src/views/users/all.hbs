@@ -1,0 +1,16 @@
+<h1>All Users</h1>
+
+{{#each authors}}
+    <div class="main__user-container">
+        <div class="main__user-header">
+            <img class="avatar" src="{{avatarUrl}}"/>
+            <h3 class="main__user-name">
+                <a href="/users/{{id}}">{{name}}</a>
+            </h3>
+        </div>
+        <p>Most recent post:</p>
+        <p>This is where the most recent post will be</p>
+    </div>
+{{/each}}
+
+<a href="/users/new"><h2>Make a new User!</h2></a>

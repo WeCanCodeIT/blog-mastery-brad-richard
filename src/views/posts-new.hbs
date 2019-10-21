@@ -1,61 +1,30 @@
-<form action="/posts" class="form__post-container">
+<form action="/posts" class="form__post-container" method="POST">
     <label class="form__post-header">New Blog Post</label>
     <label class="form__post-user_desc">User:</label>
     <label class="form__post-token_desc">User Token:</label>
-    <select class="form__post-user" name="user">
-        <option value="{{user}}">RickFan922</option>
-        <option value="{{user}}">RickFan922</option>
+    <select class="form__post-user" name="userId">
+        {{#each users}}
+            <option value="{{id}}">{{name}}</option>
+        {{/each}}
     </select>
     <input type="password" class="form__post-token" name="token">
     <label class="form__post-title_desc">Blog Title:</label>
     <input class="form__post-title" name="title">
     <label class="form__post-category_desc">Category:</label>
-    <select class="form__post-category" n ame="category">
-        <option value="{{category}}">Category</option>
+    <select class="form__post-category" name="gendreId">
+        {{#each genres}}
+            <option value="{{id}}">{{name}}</option>
+        {{/each}}
     </select>
     <label class="form__post-text_desc">Blog Post:</label>
     <textarea class="form__post-text" name="text"></textarea>
-    <label class="form__post-tags_desc">Tags:</label>
+    <label class="form__post-tags_desc">Blog Tags:</label>
     <div class="form__post-tags">
-        <label>
-            <input type="checkbox" class="form__post-tag" name="tags" value="{{tag}}">Silly
-        </label>
-        <label>
-            <input type="checkbox" class="form__post-tag" name="tags" value="{{tag}}">Head
-        </label>
-        <label>
-            <input type="checkbox" class="form__post-tag" name="tags" value="{{tag}}">Story
-        </label>
-        <label>
-            <input type="checkbox" class="form__post-tag" name="tags" value="{{tag}}">LOL
-        </label>
-        <label>
-            <input type="checkbox" class="form__post-tag" name="tags" value="{{tag}}">Silly
-        </label>
-        <label>
-            <input type="checkbox" class="form__post-tag" name="tags" value="{{tag}}">Head
-        </label>
-        <label>
-            <input type="checkbox" class="form__post-tag" name="tags" value="{{tag}}">Story
-        </label>
-        <label>
-            <input type="checkbox" class="form__post-tag" name="tags" value="{{tag}}">LOL
-        </label>
-        <label>
-            <input type="checkbox" class="form__post-tag" name="tags" value="{{tag}}">Silly
-        </label>
-        <label>
-            <input type="checkbox" class="form__post-tag" name="tags" value="{{tag}}">Head
-        </label>
-        <label>
-            <input type="checkbox" class="form__post-tag" name="tags" value="{{tag}}">Story
-        </label>
-        <label>
-            <input type="checkbox" class="form__post-tag" name="tags" value="{{tag}}">LOL
-        </label>
-        <label>
-            <input type="checkbox" class="form__post-tag" name="tags" value="{{tag}}">ThisTagIsWayTOOO LONG
-        </label>
+        {{#each tags}}
+            <label>
+                <input type="checkbox" class="form__post-tag" name="tags" value="{{id}}"><span>{{name}}</span>
+            </label>
+        {{/each}}
     </div>
 
     <label class="form__post-submit-container"><button class="form__post-submit"><span>Submit</span></button></label>

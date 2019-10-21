@@ -1,0 +1,40 @@
+<h2>Work in Progress...</h2>
+
+
+{{!-- <div class="form__user-wrapper"> --}}
+    {{#user}}
+        <p>You did it!!!!</p>
+        <p> New user {{name}} created!!</p>
+        <p> Here's your new token:     "{{token}}"</p>
+    {{/user}}
+
+    {{^user}}
+    <form action="/users/new" class="form__user-container" method="POST">
+        <h2 class="form__user-header">New User</h2>
+        
+        <label class="form__user_">Username: </label>
+        <input class="form__user-name__input" name="name"></input>
+        
+        <div class="form__username-quote-wrapper">
+            <label class="form__user-quote">Favorite Quote: </label>
+            <textarea class="form__user-quote__input" name="quote" maxlength={{globals.maxQuote}} placeholder="'To post or not to post' ... //Limit of {{global.maxQuote}} chars"></textarea>
+        </div>
+        <div class="form__user-avatar_wrapper">
+            {{#each avatars}}
+                <div class="form__user-avatar__card">
+                    <img class="avatar" src="{{imgUrl}}">
+                    <input type="radio" id={{name}} title="{{title}}" name="avatarUrl" value="{{imgUrl}}">
+                    <label for="{{name}}">{{name}}</label>
+                </div>
+            {{/each}}
+        </div>       
+
+        <label class="form__post-submit-container">
+            <button class="form__post-submit">
+                <span>Submit</span>
+            </button>
+        </label>
+
+    </form>
+    {{/user}}
+{{!-- </div> --}}

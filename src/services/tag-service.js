@@ -1,26 +1,27 @@
 const Sequelize = require('sequelize');
-const Post = require('../models/Post');
+const Tag = require('../models/Tag');
 
 module.exports = {
     async findAll () {
         try {
-            const posts = await Post.findAll();
-            return posts;
+            const tags = await Tag.findAll();
+            console.log(tags);
+            return tags;
         } catch (err) {
             return err;
         }
     },
-    async findAuthorById(userId) {
+    async findTagById(tagId) {
         try {
-            const posts = await Post.findByPk(userId);
-            return posts;
+            const tag = await Tag.findByPk(tagId);
+            return tag;
         } catch (err) {
             return err;
         }
     },
-    async save (newPost) {
+    async save (newTag) {
         try {
-            await Post.create(newPost);
+            await Tag.create(newTag);
         } catch (err) {
             return err;
         }

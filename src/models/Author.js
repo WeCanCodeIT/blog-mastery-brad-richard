@@ -19,7 +19,12 @@ const Author = sequelize.define('author', {
     avatarUrl: {
         type: Sequelize.STRING,
         allowNull: true
-    }
+    },
+
+    quote: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
 
     token: {
         type: Sequelize.STRING,

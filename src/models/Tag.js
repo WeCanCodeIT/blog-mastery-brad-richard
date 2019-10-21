@@ -12,11 +12,12 @@ const Tag = sequelize.define('tags', {
 
     name: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
     }
 });
 
-Post.hasMany(Tag, {through: 'post_tags'})
-Tag.hasMany(Post, {through: 'post_tags'})
+Post.belongsToMany(Tag, {through: 'post_tags'})
+Tag.belongsToMany(Post, {through: 'post_tags'})
 
 module.exports = Tag;
