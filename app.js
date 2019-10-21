@@ -5,14 +5,17 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 /*            Environmental Variables            */
+process.env.DB_HOST = process.env.BLOG_DB_HOST || "localhost";
+
 // Blog Database
 const blogDatabase = require('./src/data/db');
-process.env.DB_HOST = process.env.BLOG_DB_HOST || "localhost";
+const baseBlogData = require('./src/utils/base-data-generator');
 // process.env.
 
 // Routers
 var indexRouter = require('./src/routes/index');
 var usersRouter = require('./src/routes/users');
+var postsRouter = require('./src/routes/posts');
 
 var app = express();
 
@@ -28,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/posts', postsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -46,8 +50,11 @@ app.use(function(err, req, res, next) {
 });
 
 // connect to db
-blogDatabase.sync()
-  .then(() => {console.log("////---___>|| Connected to Database ||<___---\\\\\\\\")})
+blogDatabase.sync({force: true})
+  .then(() => {
+    console.log("////---___>|| Connected to Database ||<___---\\\\\\\\");
+    baseBlogData();
+  })
   .catch((err) => {console.error})
 
 module.exports = app;

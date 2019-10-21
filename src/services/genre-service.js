@@ -1,26 +1,26 @@
 const Sequelize = require('sequelize');
-const Post = require('../models/Post');
+const Genre = require('../models/Genre');
 
 module.exports = {
     async findAll () {
         try {
-            const posts = await Post.findAll();
-            return posts;
+            const genres = await Genre.findAll();
+            return genres;
         } catch (err) {
             return err;
         }
     },
     async findAuthorById(userId) {
         try {
-            const posts = await Post.findByPk(userId);
-            return posts;
+            const genres = await Genre.findByPk(userId);
+            return genres;
         } catch (err) {
             return err;
         }
     },
-    async save (newPost) {
+    async save (newGenre) {
         try {
-            await Post.create(newPost);
+            await Genre.create(newGenre);
         } catch (err) {
             return err;
         }
