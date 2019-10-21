@@ -3,7 +3,7 @@
 ## Requirements
 - NodeJS
 - MySQL, MySQL Workbench running locally
-    - Alternatively run app with an environmental variable of **'BLOG\_DB\_HOST'**
+    - Alternatively use environmental variable **'BLOG\_DB\_HOST'** for a different host-name
     - MySQL schema with the name of *'blogsite'*
     - User defaults to *'root'*
     - Password defaults to *'password'*
