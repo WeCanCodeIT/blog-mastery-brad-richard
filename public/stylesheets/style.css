@@ -387,18 +387,16 @@ h2{
 /* --------------USER FORM--------------- */
 .form__user-container{
   display: grid;
-  grid-template-columns: .4fr 1fr .4fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
-  grid-template-areas:  'header header header header'
-                        'user_desc user quote_desc quote'
-                        'avatar_desc avatar_desc none none'
-                        'avatar avatar avatar avatar'
-                        'avatar avatar avatar avatar'
-                        'none none none submit';
+  grid-template-areas:  'none heading heading none'
+                        'username_desc username token_desc token'
+                        'quote_desc quote quote quote';
          
   background-color: rgb(126, 178, 221);
   color: black;
   margin: 20px auto 20px auto;
+  padding: 1rem;
   width: 75%;
   gap: 12px;
   border: 3px solid black;
@@ -407,22 +405,33 @@ h2{
   font-family: 'Bree Serif', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .form__user-header{
-  grid-area: header;
+  grid-area: heading;
+  text-align: center;
+  width: 100%;
 }
 .form__user-name_desc{
-  grid-area: user_desc;
+  grid-area: username_desc;
 }
 .form__user-name{
-  grid-area: user;
+  grid-area: username;
+  border: 1px black solid;
+}
+.form__user-quote_desc{
+  grid-area: quote_desc;
+}
+.form__user-quote{
+  grid-area: quote;
 }
 .form__user-avatar_wrapper{
   grid-area: avatar;
+  margin: auto;
 }
 .form__user-avatar_list{
   grid-area: avatar;
   list-style: none;
+  
 }
-.form__user-avatar_list > li{
+.form__user-avatar_list-item{
   grid-area: avatar;
   float: left;
 }

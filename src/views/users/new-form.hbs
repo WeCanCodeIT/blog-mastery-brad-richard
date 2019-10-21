@@ -15,16 +15,19 @@
         <label class="form__user_">Username: </label>
         <input class="form__user-name__input" name="name"></input>
         
-       
-        <label class="form__user-avatar_wrapper">
-                <ul class="form__user-avatar_list">
+        <div class="form__username-quote-wrapper">
+            <label class="form__user-quote">Favorite Quote: </label>
+            <textarea class="form__user-quote__input" name="quote" maxlength={{globals.maxQuote}} placeholder="'To post or not to post' ... //Limit of {{global.maxQuote}} chars"></textarea>
+        </div>
+        <div class="form__user-avatar_wrapper">
             {{#each avatars}}
-                    <li><img class="avatar" src="{{imgUrl}}"></li>
-                    <li><input type="radio" id={{name}} title="{{title}}" name="avatarUrl" value="{{imgUrl}}"></li>
-                    <li><label for="{{name}}">{{name}}</label></li>
+                <div class="form__user-avatar__card">
+                    <img class="avatar" src="{{imgUrl}}">
+                    <input type="radio" id={{name}} title="{{title}}" name="avatarUrl" value="{{imgUrl}}">
+                    <label for="{{name}}">{{name}}</label>
+                </div>
             {{/each}}
-                </ul>
-        </label>       
+        </div>       
 
         <label class="form__post-submit-container">
             <button class="form__post-submit">
@@ -34,7 +37,4 @@
 
     </form>
     {{/user}}
-{{!-- </div> --}} <div class="form__username-quote-wrapper">
-            <label class="form__user-quote">Favorite Quote: </label>
-            <textarea class="form__user-quote__input" name="quote" maxlength={{globals.maxQuote}} placeholder="'To post or not to post' ... //Limit of {{global.maxQuote}} chars"></textarea>
-        </div>
+{{!-- </div> --}}

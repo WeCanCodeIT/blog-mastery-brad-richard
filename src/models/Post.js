@@ -13,7 +13,8 @@ const Post = sequelize.define('posts', {
 
     title: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
 
     body: {

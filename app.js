@@ -50,7 +50,7 @@ app.use(function(err, req, res, next) {
 });
 
 // connect to db
-blogDatabase.sync()
+blogDatabase.sync({force: true})
   .then(() => {
     console.log("////---___>|| Connected to Database ||<___---\\\\\\\\");
     baseBlogData();

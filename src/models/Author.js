@@ -21,6 +21,11 @@ const Author = sequelize.define('author', {
         allowNull: true
     },
 
+    quote: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+
     token: {
         type: Sequelize.STRING,
         allowNull: false
