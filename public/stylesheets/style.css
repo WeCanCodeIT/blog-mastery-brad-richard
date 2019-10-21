@@ -1,8 +1,536 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Quicksand|Bree+Serif|Josefin+Sans|Anton|Libre+Baskerville|Poppins|Lato|Raleway|Modak|Roboto+Condensed|Lora|Noto+Sans+TC|Open+Sans&display=swap');
+
+/* Reset Default Styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* Import Fonts */
+/* 
+font-family: 'Lora', serif;
+font-family: 'Noto Sans TC', sans-serif;
+font-family: 'Open Sans', sans-serif; 
+*/
+
+body{
+  background-image: linear-gradient(to bottom, rgb(253, 254, 255));
+  background-color: rgba(70, 75, 99, 0.836);
+  
+}
+
+/* Default 1ine-height to 20pixels  */
+html {
+  font: 18px/1 'Open Sans';
+  min-height: 100vh;
+  min-width: 880px;
+  --navbar-background-color: rgba(13, 3, 102, 0.75);
+  --navbar-text-color: white;
+  --form-background-color: rgba(13, 3, 102, 0.75);
+  --form-border-color: rgba(3, 60, 87, 0.9);
+
+  --post-bgcolor: rgb(197, 197, 166); 
+  --post-genre-bgcolor: rgb(134, 134, 114);
+  --post-user-since-bgcolor: rgb(134, 134, 114);
+  --user-link-color: rgb(255, 255, 255);
+
+
+}
+
+.main-header{
+  text-align: center;
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+}
+
+
+p {
+ font-family: 'Roboto Condensed', sans-serif; 
+}
+
+h2{
+  font-family: 'Poppins','Times New Roman', Times, serif;
+  padding-bottom: 10px;
+}
+
+.main-footer {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background-color: rgba(222, 184, 135, 0.247);
+  margin: 2rem .5rem;
+  padding: 2rem .5rem;
+}
+/* ------------ NAV BAR ---------- */
+.main-navbar{
+  position: sticky;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 75%;
+  top: 0;
+  padding: 0;
+  border: 2px solid black;
+  background-color: rgb(255, 255, 255);
+  font-size: .7rem;
+  margin: auto auto 3rem auto;
+ 
+}
+
+.main-navbar__link-wrapper{
+  display: flex;
+  position: center;
+ 
+}
+
+.main-navbar__link{
+  display: flex;
+  padding: .5rem 1.5rem 0 1.5rem;
+  transition: color 0.25s, background-color 0.25s;
+}
+
+
+.main-navbar__link:hover {
+  background-color: rgb(4, 4, 148);
+  color: white;
+  transition-duration: 0.25s;
+  
+}
+.main-navbar__logo{
+  margin: 2rem auto auto 2rem;
+  size: 200px 200px; 
+}
+.main-navbar__link-logo{
+  
+  float: left;
+}
+/* ---------------------------------------- */
+/* ---------------Category----------------- */
+.main__category-header{
+  text-align: center;
+  border: 2px solid black;
+  margin: 1rem .5rem;
+  padding: .4rem 0;
+}
+
+.main__category-post-list{
+  list-style: none;
+  padding: .3rem 0;
+  margin: 1rem 1rem;
+}
+
+/* ---------------------------------------- */
+/* -----------------POSTS------------------ */
+.avatar{
+  width: 150px;
+  height: 150px;
+  border: 2px solid black;
+}
+.main__post-category-container{
+  text-align: center;
+  background-color: var(--post-genre-bgcolor);
+  border: 3px black;
+  border-style: solid solid none solid;
+  border-radius: 10px 10px 0 0;
+  width: 300px;
+}
+.main__post-category-container:hover{
+  background-color: rgb(252, 252, 252);
+  height: 1.8rem;
+  transition-duration: 0.5s;
+  color: black;
+}
+.main__post-container{
+  display: grid;
+  grid-template-areas:  
+    'title title title date'
+    'avatar text text text'
+    'user text text text'
+    'since text text text'
+    'tags tags tags tags';
+  grid-template-columns: .4fr 1fr .4fr 1fr;
+  background-color: var(--post-bgcolor);
+  box-shadow: 10px 10px 10px rgba(41, 41, 44, 0.527);
+  border: 3px solid black;
+  border-radius: 0px 10px 10px 10px;
+  margin-bottom: 25px;
+}
+.main__post-date{
+  grid-area: date;
+  font-family: 'Anton', sans-serif; 
+  text-align: center;
+  font-size: 2rem;
+  margin:auto;
+  margin-right: 10px;
+}
+.main__post-avatar{
+  grid-area: avatar;
+  width: auto;
+  height: auto;
+  margin-left:10px; 
+
+  background-color: var(--post-user-since-bgcolor);
+  
+}
+.main__post-since{
+  grid-area: since;
+  margin-left: 10px;
+  text-align: center;
+  background-color: var(--post-user-since-bgcolor);
+}
+.main__post-since > p {
+  color:white;
+}
+.main__post-user{
+  grid-area: user;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--user-link-color);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 5px;
+  background-color: var(--post-user-since-bgcolor);
+  margin-left: 10px;
+}
+/* ----------------USERS------------- */
+.main__user-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  background-color: rgb(224, 195, 151);
+  padding: 10px;
+  border: 3px solid white;
+}
+.main__user-header{
+  text-align: center;
+}
+
+.main__user-name{
+  font-style: italic;
+  margin: .5rem 0;
+}
+
+.main__user-post-list{
+  list-style: none;
+  padding: .3rem 0;
+}
+
+.main__user-post-list__item{
+  padding: .3rem 0;
+}
+
+.main__post-user > a:visited, .main__post-user > a:link{
+  color: var(--user-link-color);
+}
+.main__post-user > a:hover{
+  color:rgb(210, 233, 10);
+  transition-duration: .25s;
+}
+.main__post-text{
+  grid-area: text;
+  font-family: 'Lato', sans-serif; 
+  background-color: rgb(244, 250, 220);
+  padding: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.main__post-tag-container{
+  grid-area: tags;
+  margin: auto;
+  list-style-type: none;
+  overflow:hidden;
+}
+.main__post-tag{
+  grid-area: tags;
+  float: left;
+  padding: .5rem .5rem;
+  
+}
+.main__post-tag:hover{
+  background-color: black;
+  color:white;
+}
+.main__post-title{
+  grid-area: title;
+  text-align: center;
+  font-size: 2.1em;
+  font-weight: bold;
+  padding: 5px;
+  padding-left: 40px;
+  padding-bottom: 0;
+  margin: 10px;
+  background-color:  rgb(244, 250, 220);
+  border: black solid 3px;
+  border-radius: 5px;
+  font-family: 'Josefin Sans', sans-serif;
+  /* color: rgb(243, 189, 89); */
+}
+.main__posts-header {
+  padding: .5rem 0;
+}
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+  min-width: 10rem;
+  max-width: 55rem;
+  min-height: 100vh;
+}
+
+/* ----------------------------*/
+/* --------Post Form --------- */
+
+.form__post-container{
+  display: grid;
+  grid-template-columns: .4fr 1fr .4fr 1fr;
+  grid-template-areas:  'header header header header'
+                        'user_desc user token_desc token'
+                        'title_desc title category_desc category'
+                        'text_desc text text text'
+                        'tags_desc tags tags tags' 
+                        'none none none submit';
+         
+  background-color: rgb(126, 178, 221);
+  color: black;
+  margin: 20px auto 20px auto;
+  width: 75%;
+  gap: 12px;
+  border: 3px solid black;
+  border-radius: 15px;
+  box-shadow: 10px 10px 10px rgba(41, 41, 44, 0.527);
+  font-family: 'Bree Serif', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.form__post-header{
+  grid-area: header;
+  text-align: center;
+  font-family: Quicksand, Helvetica, sans-serif;
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  border-bottom: 4px solid black;
+  border-radius: 10px 10px 0 0 ;
+  background-color: rgb(38, 58, 124);
+}
+.form__post-user{
+  grid-area: user;
+  padding-right: 1rem;
+  border: 1px solid black;
+}
+.form__post-token{
+  grid-area: token;
+  margin-right: 1rem;
+  border: 1px solid black;
+}
+.form__post-user_desc{
+  grid-area: user_desc;
+  text-align: right;
+}
+.form__post-token_desc{
+  grid-area: token_desc;
+  text-align: right;
+}
+.form__post-title_desc{
+  grid-area: title_desc;
+  text-align: right;
+}
+.form__post-title{
+  grid-area: title;
+  text-align: right;
+  border: 1px solid black;
+}
+.form__post-category_desc{
+  grid-area: category_desc;
+  text-align: right;
+
+}
+.form__post-category{
+  grid-area: category;
+  text-align: right;
+  margin-right: 1rem;
+  border: 1px solid black;
+}
+.form__post-text_desc{
+  grid-area: text_desc;
+  text-align: right;
+  margin-left: 10px;
+}
+.form__post-text{
+  grid-area: text;
+  padding: 12px 20px;
+  height: 13rem;
+  resize: none;
+  margin-right: 1rem;
+  border: 1px solid black;
+
+}
+.form__post-tags_desc{
+  grid-area: tags_desc;
+  text-align: right;
+}
+.form__post-tags{
+  grid-area: tags;
+  margin-right: .5rem;
+  padding-bottom: 15px;
+}
+.form__post-tag{
+  grid-area: tags;
+  margin-left: .7rem;
+  margin-right: .2rem;
+  margin-bottom: .4rem;
+}
+.form__post-tag span{
+  margin-right: 1rem;
+  padding-right: 2rem;
+}
+.form__post-tag:hover{
+ box-shadow: darkslategray 2px 2px 5px;
+ color: grey;
+}
+.form__post-submit-container{
+  grid-area: submit;
+  margin-bottom: 12px;
+}
+.form__post-submit{
+  grid-area: submit;
+  display: inline-block;
+  background-color: rgb(83, 67, 67);
+  padding: .8rem 1.5rem;
+  border: white 3px solid;
+  border-radius: 12px;
+  color: white;
+  font-family: Quicksand, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  transition: all .05s;
+}
+.form__post-submit-container > button:hover{
+  border: yellow 3px solid;
+  color: yellow;
+  cursor: pointer;
+  background-color: rgb(26, 25, 34);
+  transition: 0.5s;
+}
+.form__post-submit span{
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+} 
+.form__post-submit span:after{
+  content:'\ >>';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.form__post-submit:hover span{
+  padding-right:  25px;
+}
+.form__post-submit:hover span:after{
+  opacity: 1;
+  right: 0;
+}
+/* -------------------------------------- */
+/* --------------USER FORM--------------- */
+.form__user-container{
+  display: grid;
+  grid-template-columns: .4fr 1fr .4fr 1fr;
+  grid-template-rows: auto;
+  grid-auto-flow: row;
+  grid-template-areas:  'heading heading heading heading'
+                        'username_desc username token_desc token'
+                        'quote_desc quote quote quote'
+                        'avatar_desc avatar_desc avatar_desc avatar_desc'
+                        'avatar avatar avatar avatar'
+                        'nothing submit submit nada'
+                        ;
+  background-color: rgb(194, 197, 199);
+  color: black;
+  margin: 20px auto 20px auto;
+
+  width: 75%;
+  gap: 12px;
+  border: 3px solid black;
+  border-radius: 15px;
+  box-shadow: 10px 10px 10px rgba(41, 41, 44, 0.527);
+  font-family: 'Bree Serif', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* .form__user-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: .4fr .2fr .4fr auto;
+  width: 75%;
+  gap: 12px;
+  background-color: rgb(126, 178, 221);
+  color: black;
+  margin: 20px auto 20px auto;
+  border: 3px solid black;
+  border-radius: 15px;
+  box-shadow: 10px 10px 10px rgba(41, 41, 44, 0.527);
+  font-family: 'Bree Serif', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+} */
+
+.form__user-header{
+  grid-area: heading;
+  text-align: center;
+  font-family: Quicksand, Helvetica, sans-serif;
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  border-bottom: 4px solid black;
+  border-radius: 10px 10px 0 0 ;
+  background-color: rgb(153, 63, 41);
+  
+}
+.form__user-name_desc{
+  grid-area: username_desc;
+  margin-left: 15px;
+}
+.form__user-name{
+  grid-area: username;
+  border: 1px black solid;
+}
+.form__user-token_desc{
+  grid-area: token_desc;
+}
+.form__user-token{
+  grid-area: token;
+  border: 1px black solid;
+  margin-right: 15px;
+}
+.form__user-quote_desc{
+  grid-area: quote_desc;
+  margin: 0 0 0 15px;
+}
+.form__user-quote{
+  grid-area: quote;
+   
+}
+.form__user-quote textarea{
+  width: 92%;
+  height: 100%;
+  border: 1px black solid; 
+  margin-right: 15px;
+  resize: none;
+}
+.form__user-avatar_desc{
+  grid-area: avatar_desc;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+.form__user-avatar_list{
+  grid-area: avatar;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap ;
+  justify-content: space-evenly;
+  text-align: center;
+  
+}
+.form__user-avatar_list-item{
+ margin-bottom: 1rem;
+  grid-area: avatar;
 }

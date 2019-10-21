@@ -1,0 +1,23 @@
+<h1>{{author.name}}'s Posts</h1>
+{{#if post}}
+<a href="/category/{{genre.id}}"><div class="main__post-category-container">{{genre.name}}</div></a>
+<div class="main__post-container">
+    <p class="main__post-title">{{post.title}}</p>
+    <div class="main__post-avatar"><img src="{{author.avatarUrl}}" class="avatar"/></div>
+    <div class="main__post-date">{{postDate}}</div>
+    <p class="main__post-user"><a href="/users/{{author.id}}">{{author.name}}</a></p>
+    <p class="main__post-since">Member since:<br>October 2018</p>
+    <p class="main__post-text">{{post.body}}</p>
+    <ul class="main__post-tag-container">
+        {{#each tags}}
+            <li class="main__post-tag">#{{name}}
+        {{/each}}
+    </ul>
+{{/if}}
+{{^post}}
+    <div class="main__post-container">
+        <p class="main__post-title">Sorry! There aren't any posts!</p>
+    </div>
+{{/post}}
+</div>
+<a href="/posts/new">Make a new post!</a>

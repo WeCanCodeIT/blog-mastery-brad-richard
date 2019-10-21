@@ -1,0 +1,17 @@
+<h1 style="text-align: center">{{author.name}}</h1>
+
+<div class="main__user-container">
+    <div class="main__user-header">
+        <img class="avatar" src="{{author.avatarUrl}}"/>
+        <h3 class="main__user-name">"{{author.quote}}"</h3>
+    </div>
+    <h2>Post History</h2>
+    {{#each posts}}
+    <ul class="main__user-post-list">
+        <li class="main__user-post-list__item">
+            <a href="/posts/{{id}}">{{title}}</a>
+        </li>
+    </ul>
+    {{/each}}
+
+</div>
