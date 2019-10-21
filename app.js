@@ -16,6 +16,7 @@ const baseBlogData = require('./src/utils/base-data-generator');
 var indexRouter = require('./src/routes/index');
 var usersRouter = require('./src/routes/users');
 var postsRouter = require('./src/routes/posts');
+var categoriesRouter = require('./src/routes/categories');
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
+app.use('/categories', categoriesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

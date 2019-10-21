@@ -9,7 +9,7 @@ const postController = require('../controllers/post-controller');
 
 /* GET post page. */
 // Uncomment once renderall is created
-router.get('/', postController.renderAll)
+router.get('/(|all)', postController.renderAll)
 
 // GET new Post
 router.get('/new', postController.renderPostForm);

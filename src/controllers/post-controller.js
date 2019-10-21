@@ -4,6 +4,9 @@ const authorService = require('../services/user-service');
 const tagService = require('../services/tag-service');
 const genreService = require('../services/genre-service');
 const userService = require('../services/user-service');
+const authorModel = require('../models/Author');
+const tagModel = require('../models/Tag');
+const genreModel = require('../models/Genre');
 
 class PostController {
     static async addPost(req, res) {
@@ -32,8 +35,10 @@ class PostController {
 
         // Validate token
         const userCheck = await userService.validateToken(userId, token);
-        if (userCheck === null || userCheck === undefined) {
-            throw new Error("The token did not match the user! Try again or never come back!")
+        console.log("**** User check ****", userCheck)
+        if (userCheck === null || userCheck === undefined || userCheck.length === 0) {
+            let error = { message: "The token did not match the user! Try again or never come back!", reroute: "/posts/new" }
+            res.render("error", { error })
         } else {
             // Create Post
             await postService.save(Post, tagIds);
@@ -45,7 +50,20 @@ class PostController {
     }
 
     static async renderAll(req, res) {
-        const posts = await postService.findAll();
+        const posts = await postService.findAll({
+            include: [{
+                model: authorModel,
+                as: "author"
+            },
+            {
+                model: genreModel,
+                as: "genre"
+            },
+            {
+                model: tagModel,
+                as: "tags"
+            }]
+        });
         res.render("posts", { posts })
     }
 
@@ -55,7 +73,11 @@ class PostController {
         const tags = await post.getTags();
         const genre = await post.getGenre();
         const author = await post.getAuthor();
-        res.render("post", { post, tags, genre, author })
+
+        const DateObject = new Date(post.createdAt);
+        const postDate = DateObject.toDateString();
+        
+        res.render("post", { post, tags, genre, author, postDate })
     }
 
     static async renderPostForm(req, res) {

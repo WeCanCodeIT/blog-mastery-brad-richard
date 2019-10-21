@@ -8,7 +8,6 @@ const MAX_LENGTH = 8;
 const getRandomTokenChars = () => {
     let tokenString = ""
     let tokenLength = getRandomInt(MIN_LENGTH, MAX_LENGTH);
-    console.log("Random number: ", tokenLength)
     for (let i = 0; i <= tokenLength; i++) {
         tokenString += randomChars[getRandomInt(0, randomChars.length)]
     }

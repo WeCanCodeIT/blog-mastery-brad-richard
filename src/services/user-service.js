@@ -28,10 +28,11 @@ module.exports = {
     },
     async validateToken(authorId, token) {
         try {
-            const checkUser = await Author.find({
+            const checkedUser = await Author.findAll({
+                limit: 1,
                 where: {id: authorId, token: token}
             });
-            return checkUser;
+            return checkedUser;
         } catch (error) {
             return error
         }

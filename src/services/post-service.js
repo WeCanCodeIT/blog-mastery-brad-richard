@@ -2,9 +2,9 @@ const Sequelize = require('sequelize');
 const Post = require('../models/Post');
 
 module.exports = {
-    async findAll () {
+    async findAll (options) {
         try {
-            const posts = await Post.findAll();
+            const posts = await Post.findAll(options);
             return posts;
         } catch (err) {
             return err;

@@ -59,6 +59,7 @@ h2{
   display: flex;
   align-content: center;
   justify-content: center;
+  background-color: rgba(222, 184, 135, 0.247);
   margin: 2rem .5rem;
   padding: 2rem .5rem;
 }
@@ -106,6 +107,21 @@ h2{
   float: left;
 }
 /* ---------------------------------------- */
+/* ---------------Category----------------- */
+.main__category-header{
+  text-align: center;
+  border: 2px solid black;
+  margin: 1rem .5rem;
+  padding: .4rem 0;
+}
+
+.main__category-post-list{
+  list-style: none;
+  padding: .3rem 0;
+  margin: 1rem 1rem;
+}
+
+/* ---------------------------------------- */
 /* -----------------POSTS------------------ */
 .avatar{
   width: 150px;
@@ -134,7 +150,7 @@ h2{
     'user text text text'
     'since text text text'
     'tags tags tags tags';
-  
+  grid-template-columns: .4fr 1fr .4fr 1fr;
   background-color: var(--post-bgcolor);
   box-shadow: 10px 10px 10px rgba(41, 41, 44, 0.527);
   border: 3px solid black;
@@ -154,6 +170,7 @@ h2{
   width: auto;
   height: auto;
   margin-left:10px; 
+
   background-color: var(--post-user-since-bgcolor);
   
 }
@@ -177,6 +194,33 @@ h2{
   background-color: var(--post-user-since-bgcolor);
   margin-left: 10px;
 }
+/* ----------------USERS------------- */
+.main__user-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  background-color: rgb(224, 195, 151);
+  padding: 10px;
+  border: 3px solid white;
+}
+.main__user-header{
+  text-align: center;
+}
+
+.main__user-name{
+  font-style: italic;
+  margin: .5rem 0;
+}
+
+.main__user-post-list{
+  list-style: none;
+  padding: .3rem 0;
+}
+
+.main__user-post-list__item{
+  padding: .3rem 0;
+}
+
 .main__post-user > a:visited, .main__post-user > a:link{
   color: var(--user-link-color);
 }
@@ -401,7 +445,7 @@ h2{
                         'avatar avatar avatar avatar'
                         'nothing submit submit nada'
                         ;
-  background-color: rgb(126, 178, 221);
+  background-color: rgb(194, 197, 199);
   color: black;
   margin: 20px auto 20px auto;
 

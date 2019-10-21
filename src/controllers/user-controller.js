@@ -25,7 +25,6 @@ class AuthorController {
         const userId = Number(req.params.id);
         const author = await userService.findAuthorById(userId)
         const posts = await author.getPosts();
-        console.log(posts);
         
         res.render("users/single", {author, posts})
     }
