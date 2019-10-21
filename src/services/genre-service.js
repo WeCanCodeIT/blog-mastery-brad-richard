@@ -10,10 +10,10 @@ module.exports = {
             return err;
         }
     },
-    async findAuthorById(userId) {
+    async findGenreById(id) {
         try {
-            const genres = await Genre.findByPk(userId);
-            return genres;
+            const genre = await Genre.findByPk(id);
+            return genre;
         } catch (err) {
             return err;
         }

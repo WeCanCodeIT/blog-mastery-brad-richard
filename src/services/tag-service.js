@@ -5,7 +5,6 @@ module.exports = {
     async findAll () {
         try {
             const tags = await Tag.findAll();
-            console.log(tags);
             return tags;
         } catch (err) {
             return err;

@@ -23,6 +23,7 @@ body{
 html {
   font: 18px/1 'Open Sans';
   min-height: 100vh;
+  min-width: 880px;
   --navbar-background-color: rgba(13, 3, 102, 0.75);
   --navbar-text-color: white;
   --form-background-color: rgba(13, 3, 102, 0.75);
@@ -44,6 +45,7 @@ a {
   text-decoration: none;
 }
 
+
 p {
  font-family: 'Roboto Condensed', sans-serif; 
 }
@@ -57,6 +59,7 @@ h2{
   display: flex;
   align-content: center;
   justify-content: center;
+  background-color: rgba(222, 184, 135, 0.247);
   margin: 2rem .5rem;
   padding: 2rem .5rem;
 }
@@ -88,6 +91,7 @@ h2{
   transition: color 0.25s, background-color 0.25s;
 }
 
+
 .main-navbar__link:hover {
   background-color: rgb(4, 4, 148);
   color: white;
@@ -102,6 +106,21 @@ h2{
   
   float: left;
 }
+/* ---------------------------------------- */
+/* ---------------Category----------------- */
+.main__category-header{
+  text-align: center;
+  border: 2px solid black;
+  margin: 1rem .5rem;
+  padding: .4rem 0;
+}
+
+.main__category-post-list{
+  list-style: none;
+  padding: .3rem 0;
+  margin: 1rem 1rem;
+}
+
 /* ---------------------------------------- */
 /* -----------------POSTS------------------ */
 .avatar{
@@ -120,7 +139,8 @@ h2{
 .main__post-category-container:hover{
   background-color: rgb(252, 252, 252);
   height: 1.8rem;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
+  color: black;
 }
 .main__post-container{
   display: grid;
@@ -130,7 +150,7 @@ h2{
     'user text text text'
     'since text text text'
     'tags tags tags tags';
-  
+  grid-template-columns: .4fr 1fr .4fr 1fr;
   background-color: var(--post-bgcolor);
   box-shadow: 10px 10px 10px rgba(41, 41, 44, 0.527);
   border: 3px solid black;
@@ -150,6 +170,7 @@ h2{
   width: auto;
   height: auto;
   margin-left:10px; 
+
   background-color: var(--post-user-since-bgcolor);
   
 }
@@ -173,6 +194,33 @@ h2{
   background-color: var(--post-user-since-bgcolor);
   margin-left: 10px;
 }
+/* ----------------USERS------------- */
+.main__user-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  background-color: rgb(224, 195, 151);
+  padding: 10px;
+  border: 3px solid white;
+}
+.main__user-header{
+  text-align: center;
+}
+
+.main__user-name{
+  font-style: italic;
+  margin: .5rem 0;
+}
+
+.main__user-post-list{
+  list-style: none;
+  padding: .3rem 0;
+}
+
+.main__user-post-list__item{
+  padding: .3rem 0;
+}
+
 .main__post-user > a:visited, .main__post-user > a:link{
   color: var(--user-link-color);
 }
@@ -387,16 +435,20 @@ h2{
 /* --------------USER FORM--------------- */
 .form__user-container{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: .4fr 1fr .4fr 1fr;
   grid-template-rows: auto;
-  grid-template-areas:  'none heading heading none'
+  grid-auto-flow: row;
+  grid-template-areas:  'heading heading heading heading'
                         'username_desc username token_desc token'
-                        'quote_desc quote quote quote';
-         
-  background-color: rgb(126, 178, 221);
+                        'quote_desc quote quote quote'
+                        'avatar_desc avatar_desc avatar_desc avatar_desc'
+                        'avatar avatar avatar avatar'
+                        'nothing submit submit nada'
+                        ;
+  background-color: rgb(194, 197, 199);
   color: black;
   margin: 20px auto 20px auto;
-  padding: 1rem;
+
   width: 75%;
   gap: 12px;
   border: 3px solid black;
@@ -404,34 +456,81 @@ h2{
   box-shadow: 10px 10px 10px rgba(41, 41, 44, 0.527);
   font-family: 'Bree Serif', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+/* .form__user-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: .4fr .2fr .4fr auto;
+  width: 75%;
+  gap: 12px;
+  background-color: rgb(126, 178, 221);
+  color: black;
+  margin: 20px auto 20px auto;
+  border: 3px solid black;
+  border-radius: 15px;
+  box-shadow: 10px 10px 10px rgba(41, 41, 44, 0.527);
+  font-family: 'Bree Serif', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+} */
+
 .form__user-header{
   grid-area: heading;
   text-align: center;
-  width: 100%;
+  font-family: Quicksand, Helvetica, sans-serif;
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  border-bottom: 4px solid black;
+  border-radius: 10px 10px 0 0 ;
+  background-color: rgb(153, 63, 41);
+  
 }
 .form__user-name_desc{
   grid-area: username_desc;
+  margin-left: 15px;
 }
 .form__user-name{
   grid-area: username;
   border: 1px black solid;
 }
+.form__user-token_desc{
+  grid-area: token_desc;
+}
+.form__user-token{
+  grid-area: token;
+  border: 1px black solid;
+  margin-right: 15px;
+}
 .form__user-quote_desc{
   grid-area: quote_desc;
+  margin: 0 0 0 15px;
 }
 .form__user-quote{
   grid-area: quote;
+   
 }
-.form__user-avatar_wrapper{
-  grid-area: avatar;
-  margin: auto;
+.form__user-quote textarea{
+  width: 92%;
+  height: 100%;
+  border: 1px black solid; 
+  margin-right: 15px;
+  resize: none;
+}
+.form__user-avatar_desc{
+  grid-area: avatar_desc;
+  text-align: center;
+  border-bottom: 1px solid black;
 }
 .form__user-avatar_list{
   grid-area: avatar;
   list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap ;
+  justify-content: space-evenly;
+  text-align: center;
   
 }
 .form__user-avatar_list-item{
+ margin-bottom: 1rem;
   grid-area: avatar;
-  float: left;
 }

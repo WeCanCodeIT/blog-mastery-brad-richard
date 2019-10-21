@@ -1,40 +1,64 @@
-<h2>Work in Progress...</h2>
-
-
+<h2>Welcome</h2>
 {{!-- <div class="form__user-wrapper"> --}}
-    {{#user}}
+    {{!-- {{#user}}
         <p>You did it!!!!</p>
         <p> New user {{name}} created!!</p>
         <p> Here's your new token:     "{{token}}"</p>
-    {{/user}}
+    {{/user}} --}}
 
-    {{^user}}
+    {{!-- {{^user}} --}}
     <form action="/users/new" class="form__user-container" method="POST">
-        <h2 class="form__user-header">New User</h2>
+        <header class="form__user-header">
+            New User
+            </header>   
+        <label class="form__user-name_desc">
+            Username: 
+            </label>
+        <label>
+            <input class="form__user-name" name="name"></input>
+            </label>       
+        <label class="form__user-token_desc">
+            Password: 
+            </label>
+        <label>
+            <input class="form__user-token" name="token"></input>
+            </label>       
+        <label class="form__user-quote_desc">
+            Favorite Quote: 
+            </label>
+        <label class="form__user-quote">
+            <textarea name="quote" maxlength="255" placeholder="'To post or not to post' ... //Limit of 255 chars"></textarea>
+            </label>      
+        <label class="form__user-avatar_desc">
+            Select your Avatar: 
+            </label>
+        <label class="form__user-quote">
         
-        <label class="form__user_">Username: </label>
-        <input class="form__user-name__input" name="name"></input>
-        
-        <div class="form__username-quote-wrapper">
-            <label class="form__user-quote">Favorite Quote: </label>
-            <textarea class="form__user-quote__input" name="quote" maxlength={{globals.maxQuote}} placeholder="'To post or not to post' ... //Limit of {{global.maxQuote}} chars"></textarea>
-        </div>
-        <div class="form__user-avatar_wrapper">
-            {{#each avatars}}
-                <div class="form__user-avatar__card">
-                    <img class="avatar" src="{{imgUrl}}">
+           
+           
+            </label>      
+            
+                <ul class="form__user-avatar_list">
+                {{#each avatars}}    
+                   <li class="form__user-avatar_list-item"> <img class="avatar" src="{{imgUrl}}"><br>
                     <input type="radio" id={{name}} title="{{title}}" name="avatarUrl" value="{{imgUrl}}">
                     <label for="{{name}}">{{name}}</label>
-                </div>
-            {{/each}}
-        </div>       
+                    </li>
+                 {{/each}}
+                </ul>
+            <label class="form__post-submit-container">
+                <button class="form__post-submit">
+                    <span>Submit</span>
+                </button>
+            </label>
+            
+        </div>    
+                 
+   </form>
 
-        <label class="form__post-submit-container">
-            <button class="form__post-submit">
-                <span>Submit</span>
-            </button>
-        </label>
+    
 
-    </form>
-    {{/user}}
+
+
+    {{!-- {{/user}} --}}
 {{!-- </div> --}}

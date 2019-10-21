@@ -1,0 +1,12 @@
+<div class="main__category-container">
+    <div class="main__category-name">
+        <h2 class="main__category-name">{{category.name}}
+    </div>
+    <h2 class="main__category-header">Post History</h2>
+    {{#each posts}}
+    <ul class="main__category-post-list">
+        <li class="main__category-post-list__item">
+            <a href="/posts/{{id}}">{{title}}</a>
+        </li>
+    </ul>
+    {{/each}}

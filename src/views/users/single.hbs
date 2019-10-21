@@ -1,10 +1,9 @@
-<h1>Single User</h1>
+<h1 style="text-align: center">{{author.name}}</h1>
 
-<a href="#Category"><div class="main__user-name-container">Outdoors</div></a>
 <div class="main__user-container">
     <div class="main__user-header">
-        <img class="main__user-avatar" src="{{avatarUrl}}"/>
-        <h3 class="main__user-name">{{name}}</h3>
+        <img class="avatar" src="{{author.avatarUrl}}"/>
+        <h3 class="main__user-name">"{{author.quote}}"</h3>
     </div>
     <h2>Post History</h2>
     {{#each posts}}

@@ -5,20 +5,14 @@ const avatarArray = require('../models/image-url-array');
 
 class AuthorController {
     static async addUser(req, res) {
-        /* Commented Out Author associations */
-        // const authorId = req.body.authorId;
-
-        let userToken = tokenGen();
+        // let userToken = tokenGen();
         const User = { name: req.body.name, 
                          body: req.body.body,
-                         token: userToken,
+                         token: req.body.token,
                          quote: req.body.quote,
                          avatarUrl: req.body.avatarUrl }
         const newUser = await userService.save( User );
-        console.log("***  New User *** \n", newUser);
-        res.render("users/new-form", {user: User})
-
-        // newPost.addAuthor(authorId)
+        res.render("users/new", {user: User})
     }
    
 
@@ -28,9 +22,11 @@ class AuthorController {
     }
 
     static async renderUser(req, res) {
-        const userId = req.params.id;
+        const userId = Number(req.params.id);
         const author = await userService.findAuthorById(userId)
-        res.render("users/single", {author})
+        const posts = await author.getPosts();
+        
+        res.render("users/single", {author, posts})
     }
 
     static async renderUserForm(req, res) {

@@ -40,10 +40,7 @@ const buildBaseData = async () => {
         fields: ["name"],
         updateOnDuplicate: ["name"]
     });
-    await AuthorsTable.create(baseAuthorData, {
-        fields: ["name", "avatarUrl", "quote", "token"],
-        updateOnDuplicate: ["name", "avatarUrl", "quote", "token"]
-    });
+    await AuthorsTable.create(baseAuthorData);
 }
 
 module.exports = buildBaseData;
