@@ -1,30 +1,30 @@
 <h2>Work in Progress...</h2>
 
 
-<div class="form__user-wrapper">
-    {{#token}}
+{{!-- <div class="form__user-wrapper"> --}}
+    {{#user}}
+        <p>You did it!!!!</p>
+        <p> New user {{name}} created!!</p>
+        <p> Here's your new token:     "{{token}}"</p>
+    {{/user}}
 
-    {{/token}}
-    {{^token}}
-    <form action="/posts" class="form__user-container">
-        <label class="form__user-header">New User</label>
-        <div class="form__username-wrapper">
-            <label class="form__user-name">Username: </label>
-            <input class="form__user-name__input" name="name"></input>
-        </div>
-        <div class="form__username-quote-wrapper">
-            <label class="form__user-quote">Favorite Quote: </label>
-            <textarea class="form__user-quote__input" name="quote" maxlength={{globals.maxQuote}} placeholder="'To post or not to post' ... //Limit of {{global.maxQuote}} chars"></textarea>
-        </div>
-        <div class="form__user-avatar-select-wrapper">
+    {{^user}}
+    <form action="/users/new" class="form__user-container" method="POST">
+        <h2 class="form__user-header">New User</h2>
+        
+        <label class="form__user_">Username: </label>
+        <input class="form__user-name__input" name="name"></input>
+        
+       
+        <label class="form__user-avatar_wrapper">
+                <ul class="form__user-avatar_list">
             {{#each avatars}}
-                <div class="form__user-avatar__card">
-                    <img class="avatar" src="{{imgUrl}}">
-                    <input type="radio" id={{name}} title={{title}} name="avatarUrl" value="{{imgUrl}}">
-                    <label for="{{name}}">{{name}}</label>
-                </div>>
+                    <li><img class="avatar" src="{{imgUrl}}"></li>
+                    <li><input type="radio" id={{name}} title="{{title}}" name="avatarUrl" value="{{imgUrl}}"></li>
+                    <li><label for="{{name}}">{{name}}</label></li>
             {{/each}}
-        </div>       
+                </ul>
+        </label>       
 
         <label class="form__post-submit-container">
             <button class="form__post-submit">
@@ -33,5 +33,8 @@
         </label>
 
     </form>
-    {{/token}}
-</div>
+    {{/user}}
+{{!-- </div> --}} <div class="form__username-quote-wrapper">
+            <label class="form__user-quote">Favorite Quote: </label>
+            <textarea class="form__user-quote__input" name="quote" maxlength={{globals.maxQuote}} placeholder="'To post or not to post' ... //Limit of {{global.maxQuote}} chars"></textarea>
+        </div>

@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Blog Website</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-      <nav class="main-navbar">
-        <a href="/" class="main-navbar__link-logo"><img src="../images/blog_logo.ico"/></a>
-        <div class="main-navbar__link-wrapper">
-          <a class="main-navbar__link" href="/"><h2>Home</h2></a>
-          <a class="main-navbar__link" href="/posts"><h2>Posts</h2></a>
-          <a class="main-navbar__link" href="/users"><h2>Users</h2></a>
-          <a class="main-navbar__link"><h2>About</h2></a>
-        </div>
-      </nav>
-    <div class="wrapper">
-        {{{body}}}
-      <footer class="main-footer">
-        Wilson Industries Inc &trade;
-      </footer>
+
+<head>
+  <title>Blog Website</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <nav class="main-navbar">
+    <div class="main-navbar__link-wrapper">
+      <a class="main-navbar__link" href="/">
+        <h2>Home</h2>
+      </a>
+      <a class="main-navbar__link" href="/posts">
+        <h2>Posts</h2>
+      </a>
+      <a class="main-navbar__link" href="/users">
+        <h2>Authors</h2>
+      </a>
+      <a class="main-navbar__link">
+        <h2>Categories</h2>
+      </a>
+      <a class="main-navbar__link">
+        <h2>Tags</h2>
+      </a>
     </div>
-  </body>
+  </nav>
+  <div class="wrapper">
+    {{{body}}}
+    <footer class="main-footer">
+      Wilson Industries Inc &trade;
+    </footer>
+  </div>
+</body>

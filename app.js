@@ -5,9 +5,11 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 /*            Environmental Variables            */
+process.env.DB_HOST = process.env.BLOG_DB_HOST || "localhost";
+
 // Blog Database
 const blogDatabase = require('./src/data/db');
-process.env.DB_HOST = process.env.BLOG_DB_HOST || "localhost";
+const baseBlogData = require('./src/utils/base-data-generator');
 // process.env.
 
 // Routers
@@ -49,7 +51,10 @@ app.use(function(err, req, res, next) {
 
 // connect to db
 blogDatabase.sync()
-  .then(() => {console.log("////---___>|| Connected to Database ||<___---\\\\\\\\")})
+  .then(() => {
+    console.log("////---___>|| Connected to Database ||<___---\\\\\\\\");
+    baseBlogData();
+  })
   .catch((err) => {console.error})
 
 module.exports = app;

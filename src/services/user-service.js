@@ -18,9 +18,10 @@ module.exports = {
             return err;
         }
     },
-    async save (newAuthor) {
+    async save (author) {
         try {
-            await Author.create(newAuthor);
+            const newAuthor = await Author.create(author);
+            return newAuthor;
         } catch (err) {
             return err;
         }

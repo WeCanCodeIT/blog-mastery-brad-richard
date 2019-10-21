@@ -11,8 +11,11 @@ const Genre = sequelize.define('genres', {
 
     name: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
     }
 });
+
+
 
 module.exports = Genre;
